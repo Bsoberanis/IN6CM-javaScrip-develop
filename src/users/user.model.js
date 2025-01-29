@@ -23,6 +23,12 @@ const userSchema = new mongosee.Schema({
         maxLength: 8,
         required: true,
     },
+
+    role:{
+        type: String,
+        require: true,
+        enum: ["ADMIN_ROLE", "USER_ROLE"]
+    },
  
     estado: {
         type: Boolean,
@@ -37,9 +43,9 @@ const userSchema = new mongosee.Schema({
 });
  
 userSchema.methods.toJSON = function(){
-    const { __v, password, ...user } = this.toObject();
+    const { __v, password, _id, ...user } = this.toObject();
     user.uid = _id;
-    return usuario;
+    return user;
 };
  
 export default mongosee.model('User', userSchema);

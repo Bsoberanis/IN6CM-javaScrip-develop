@@ -9,7 +9,7 @@ import { existenteEmail, esRoleValido } from "../helpers/db-validator.js";
 const router = Router();
 
 router.post(
-    './login',
+    '/login',
     [
         check('correo', 'Este no es un correo valido').isEmail(),
         check('password', 'Rellenar el campo password').not().isEmpty(),
@@ -19,7 +19,7 @@ router.post(
 );
 
 router.post(
-    './register',
+    '/register',
     [
         check('nombre', 'El nombre es un campo obligatorio').not().isEmpty(),
         check('password', 'El password debe se mayor a 6 caracteres').isLength({ min: 6}),
@@ -31,4 +31,4 @@ router.post(
     ],
     register
 )
-export default router
+export default router   
