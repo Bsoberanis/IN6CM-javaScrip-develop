@@ -17,10 +17,8 @@ const configurarMiddleWares = (app) => {
     app.use(limiter)
 }
 
-const configurarRutas = (app) => {
-    const authPath = '/centrodeadopcion/v1/users';
-
-    app.use(authPath, authRoutes);
+const routes = (app) => {
+    app.use('/centrodeadopcion/v1/auth', authRoutes);
 }
 
 const conectarDB = async () => {
@@ -33,16 +31,17 @@ const conectarDB = async () => {
     }
 }
 
-export const iniciarServidor = async() => {
+export const initServer = async() => {
     const app = express();
     const port = process.env.PORT || 3000;
 
-    await conectarDB();
-
-    configurarMiddleWares(app);
-    configurarRutas(app);
-
-    app.listen(port, () => {
-        console.log(`Server running on port ${port}`);
-    });
+    try {
+        middleware(app);
+        conectarDB();
+        authRoutes(app);
+        app.listen(port);
+        console.log()
+    } catch (err) {
+        console.log('Server init failed: $(err)')
+    }
 }
