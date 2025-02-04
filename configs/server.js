@@ -7,7 +7,8 @@ import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js';
 import authRoutes from '../src/auth/auth.routes.js'
- 
+import userRoutes from '../src/users/user.routes.js' 
+
 const configurarMiddleWares = (app) => {
     app.use(express.urlencoded({ extended: false}));
     app.use(cors());
@@ -19,6 +20,7 @@ const configurarMiddleWares = (app) => {
 
 const routes = (app) => {
     app.use('/centrodeadopcion/v1/auth', authRoutes);
+    app.use('/centrodeadopcion/v1/users', userRoutes);
 }
 
 const conectarDB = async () => {
