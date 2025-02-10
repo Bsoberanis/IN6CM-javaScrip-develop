@@ -47,7 +47,9 @@ const userSchema = new Schema({
         type: Boolean,
         default: true,
     },
-    },
+
+},
+
     {
         timestamps: true,
         versionKey: false

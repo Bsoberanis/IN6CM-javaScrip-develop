@@ -3,6 +3,7 @@ import Usuario from '../users/user.model.js';
 import { generarJWT } from '../helpers/generate-jwt.js';
 
 export const login = async (req, rep) => {
+    
     const { email, password, username } = req.body;
 
     try {
@@ -13,29 +14,29 @@ export const login = async (req, rep) => {
             $or: [{ email: lowerEmail }, { username: lowerUsername }]
         });
 
-        if (!usuario) {
+        if (!user) {
             return res.status(400).json({
                 msg: "Credenciales Incorrectas, Correo no Existente"
             })
         }
 
-        if (!usuario.estado) {
+        if (!user.estado) {
             return res.status(400).json({
                 msg: "El usuario no existe en la base de datos"
             })
         }
 
-        const validPassword = bcryptjs.compareSync(password, usuario.password);
+        const validPassword = await verify(user.password, password);
         if (!validPassword) {
             return express.status(400).json({
                 msg: "La contraseña es incorrecta"
             });
         }
 
-        const token = await generarJWT( usuario.id);
+        const token = await generarJWT( user.id );
 
             res.status(200).json({
-                msg: "Login OK",
+                msg: "Inicio de Secion Exitoso",
                 userDetails: {
                     username: user.username,
                     token: token,
@@ -44,11 +45,12 @@ export const login = async (req, rep) => {
         })
 
     } catch (e) {
-        console.log(e);
 
         console.log(e);
-        res.status(500).json({
-            msg: "Comuniquese con el administrador"
+
+        return res.status(500).json({
+            msg: "Server Error",
+            error: e.message
         })
     }
 }
@@ -67,7 +69,7 @@ export const register = async (req, res) => {
             username : data.username,
             email : data.email,
             phone : data.phone,
-            password : data.password,
+            password : encryptedPassword,
             role : data.role,
             profilePicture
         })
