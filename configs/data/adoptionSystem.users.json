@@ -2,9 +2,9 @@
   "_id": {
     "$oid": "67aa0a0e8a18356b087d08fc"
   },
-  "name": "Fernando",
-  "surname": "Tomas",
-  "username": "treLetra",
+  "name": "fredi",
+  "surname": "belasquez",
+  "username": "fbelasquez",
   "email": "ftomas@gmail.com",
   "password": "$argon2id$v=19$m=65536,t=3,p=4$tBmv8Bd/yFHKNj0MRTLPuA$Y2Q1KxRMTega1V3rOZJkq9NxvVbVf6Lunno3zXGYI50",
   "profilePicture": null,
