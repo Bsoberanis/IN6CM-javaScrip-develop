@@ -29,7 +29,6 @@ export const register = async(req, res) => {
         })
     } catch (error) {
         console.log(error);
-
         return res.status(500).json({
             message: "User registration failed",
             error: error.message
@@ -38,9 +37,9 @@ export const register = async(req, res) => {
 }
 
 export const login = async(req, res) => {
-
+    console.log("hola")
     const {email, password, username} = req.body;
-
+    
     try {
         const lowerEmail = email ? email.toLowerCase(): null;
         const lowerUsername= username ? username.toLowerCase(): null;
