@@ -1,29 +1,20 @@
 {
-<<<<<<< HEAD
-  "name": "projecto-1",
+  "name": "adoptionsystem",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-=======
-  "name": "nueva-carpeta",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
->>>>>>> 6d17c82c46a7391ce40b773d51e6d5802d8edf50
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Marco Bolaños",
   "license": "ISC",
-  "description": "",
+  "type": "module",
+  "description": "API oara la gestion de adopcion de las mascotas",
   "dependencies": {
-<<<<<<< HEAD
+    "adoptionsystem": "file:",
     "argon2": "^0.41.1",
-=======
->>>>>>> 6d17c82c46a7391ce40b773d51e6d5802d8edf50
-    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -32,20 +23,10 @@
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
-<<<<<<< HEAD
     "morgan": "^1.10.0",
-    "multer": "^1.4.5-lts.1",
-    "projecto-1": "file:"
+    "multer": "^1.4.5-lts.1"
   },
-  "type": "module",
   "devDependencies": {
-=======
-    "morgan": "^1.10.0"
-  },
-  "type": "module",
-  "devDependencies": {
-    "nodemo": "^1.0.0",
->>>>>>> 6d17c82c46a7391ce40b773d51e6d5802d8edf50
     "nodemon": "^3.1.9"
   }
 }
