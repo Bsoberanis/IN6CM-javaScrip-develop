@@ -1,57 +1,32 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import jwt from "jsonwebtoken";
+import { Router } from "express";
+import { login, register, updatePassword } from "./auth.controller.js";
+import { registerValidator, loginValidator, upPassValidator } from "../middlewares/user-validators.js";
+import { uploadProfilePicture } from "../middlewares/multer-uploads.js";
+import { deleteFileOnError } from "../middlewares/delete-file-on-error.js";
+import { validarJWT } from "../middlewares/validar-jwt.js";
 
-export const generarJWT = (uid = ' ') => {
-    return new Promise((resolve, reject) => {
-        const payload = { uid };
-=======
-=======
->>>>>>> b7dfb84 (PMA terminado)
-import jwt from "jsonwebtoken"
+const router = Router();
 
-export const generateJWT = (uid = " ") => {
-    return new Promise((resolve, reject) => {
-        const payload = { uid }
-<<<<<<< HEAD
->>>>>>> 91215ea (PMA terminado)
-=======
->>>>>>> b7dfb84 (PMA terminado)
+router.post(
+    "/login",
+    loginValidator,
+    login
+);
 
-        jwt.sign(
-            payload,
-            process.env.SECRETORPRIVATEKEY,
-            {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                expiresIn: '1h'
-            },
-            (err, token) => {
-                err ? (console.log(err), reject('No se pudo generar el token')) : resolve(token);
-            }
-        );
-    });
-}
-=======
-=======
->>>>>>> b7dfb84 (PMA terminado)
-                expiresIn: "1h"
-            },
-            (err, token) =>{
-                if(err){
-                    reject({
-                        success: false,
-                        message: err
-                    })
-                }else{
-                    resolve(token)
-                }
-            }
-        )
-    })
-<<<<<<< HEAD
-}
->>>>>>> 91215ea (PMA terminado)
-=======
-}
->>>>>>> b7dfb84 (PMA terminado)
+router.post(
+    "/register",
+    uploadProfilePicture.single("profilePicture"),
+    registerValidator,
+    deleteFileOnError,
+    register
+);
+
+router.put(
+    "/password/:id",
+    validarJWT,
+    upPassValidator,
+    updatePassword
+);
+
+export default router;
+
