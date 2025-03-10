@@ -70,7 +70,11 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
+<<<<<<< HEAD
 							"raw": "{\r\n    \"email\":\"BSOBERANIS@gmail.es\",\r\n    \"password\":\"BSOBERANIS123*\"\r\n}",
+=======
+							"raw": "{\r\n    \"email\":\"amejia@gmail.es\",\r\n    \"password\":\"Amejia123*\"\r\n}",
+>>>>>>> b7dfb84 (PMA terminado)
 							"options": {
 								"raw": {
 									"language": "json"

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { hash, verify } from 'argon2';
 import Usuario from '../users/user.model.js';
 import { generarJWT } from '../helpers/generate-jwt.js';
@@ -7,11 +8,17 @@ import { hash, verify } from "argon2"
 import User from "../user/user.model.js"
 import { generateJWT } from "../helpers/generate-jwt.js";
 >>>>>>> 91215ea (PMA terminado)
+=======
+import { hash, verify } from "argon2"
+import User from "../user/user.model.js"
+import { generateJWT } from "../helpers/generate-jwt.js";
+>>>>>>> b7dfb84 (PMA terminado)
 
 export const register = async (req, res) => {
     try {
         const data = req.body;
         let profilePicture = req.file ? req.file.filename : null;
+<<<<<<< HEAD
 <<<<<<< HEAD
         const encryptedPassword = await hash(data.password);
 
@@ -148,6 +155,8 @@ export const updatePassword = async (req, res) => {
     }
 };
 =======
+=======
+>>>>>>> b7dfb84 (PMA terminado)
         const encryptedPassword = await hash(data.password)
         data.password = encryptedPassword
         data.profilePicture = profilePicture
@@ -205,5 +214,9 @@ export const login = async (req, res) => {
             error: err.message
         })
     }
+<<<<<<< HEAD
 }
 >>>>>>> 91215ea (PMA terminado)
+=======
+}
+>>>>>>> b7dfb84 (PMA terminado)

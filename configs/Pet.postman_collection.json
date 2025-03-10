@@ -13,7 +13,11 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
+<<<<<<< HEAD
 					"raw": "{\r\n  \"name\": \"brandon\",\r\n  \"description\": \"Adopcion\",\r\n  \"age\": \"3\",\r\n  \"type\": \"perro\",\r\n  \"email\": \"eorellana@gmail.com\"\r\n}",
+=======
+					"raw": "{\r\n  \"name\": \"ernesto\",\r\n  \"description\": \"Adopcion\",\r\n  \"age\": \"3\",\r\n  \"type\": \"perro\",\r\n  \"email\": \"eorellana@gmail.com\"\r\n}",
+>>>>>>> b7dfb84 (PMA terminado)
 					"options": {
 						"raw": {
 							"language": "json"

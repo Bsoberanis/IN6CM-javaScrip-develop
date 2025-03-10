@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 'use strict';
 
 import express from 'express';
@@ -51,6 +52,8 @@ export const initServer = async () => {
     }
 };
 =======
+=======
+>>>>>>> b7dfb84 (PMA terminado)
 "use strict"
 
 import express from "express"
@@ -102,4 +105,7 @@ export const initServer = () => {
     }
 }
 
+<<<<<<< HEAD
 >>>>>>> 91215ea (PMA terminado)
+=======
+>>>>>>> b7dfb84 (PMA terminado)

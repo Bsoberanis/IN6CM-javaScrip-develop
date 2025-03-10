@@ -16,17 +16,29 @@
 					"formdata": [
 						{
 							"key": "name",
+<<<<<<< HEAD
 							"value": "luis",
+=======
+							"value": "LUIS",
+>>>>>>> b7dfb84 (PMA terminado)
 							"type": "text"
 						},
 						{
 							"key": "surname",
+<<<<<<< HEAD
 							"value": "choc",
+=======
+							"value": "PEREZ",
+>>>>>>> b7dfb84 (PMA terminado)
 							"type": "text"
 						},
 						{
 							"key": "username",
+<<<<<<< HEAD
 							"value": "sis",
+=======
+							"value": "SIS",
+>>>>>>> b7dfb84 (PMA terminado)
 							"type": "text"
 						},
 						{

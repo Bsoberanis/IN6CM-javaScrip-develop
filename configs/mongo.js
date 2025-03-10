@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 'use strict';
 
 import mongoose from "mongoose";
@@ -34,6 +35,8 @@ export const dbConnection = async () => {
     }
 };
 =======
+=======
+>>>>>>> b7dfb84 (PMA terminado)
 'use strict'
 
 import mongoose from "mongoose"
@@ -68,5 +71,9 @@ export const dbConnection = async () => {
     }catch(err){
         console.log(`Database connection failed: ${err}`)
     }
+<<<<<<< HEAD
 }
 >>>>>>> 91215ea (PMA terminado)
+=======
+}
+>>>>>>> b7dfb84 (PMA terminado)

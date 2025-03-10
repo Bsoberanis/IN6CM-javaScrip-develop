@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Router } from 'express';
 import { check } from 'express-validator';
 import { savePet, getPets, searchPet, deletePet } from './pet.controller.js';
@@ -52,6 +53,8 @@ router.delete(
 
 export default router;
 =======
+=======
+>>>>>>> b7dfb84 (PMA terminado)
 import { Router } from "express";
 import { savePet, getPets, searchPet, deletePet } from "./pet.controller.js";
 import { createPetValidator, getPetByIdValidator, updatePetValidator, deletePetValidator } from "../middlewares/pet-validators.js";
@@ -68,5 +71,9 @@ router.put("/updatePet/:id", updatePetValidator, savePet);
 
 router.delete("/deletePet/:id", deletePetValidator, deletePet);
 
+<<<<<<< HEAD
 export default router;
 >>>>>>> 91215ea (PMA terminado)
+=======
+export default router;
+>>>>>>> b7dfb84 (PMA terminado)

@@ -1,7 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 node_modules/
 =======
 node_modules/
 
 package-lock.json
 >>>>>>> 91215ea (PMA terminado)
+=======
+node_modules/
+
+package-lock.json
+>>>>>>> b7dfb84 (PMA terminado)
