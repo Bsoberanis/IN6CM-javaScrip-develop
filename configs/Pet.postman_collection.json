@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "9f5fd00c-ccaa-4278-bf7f-f3bf7b6bd85b",
+		"name": "Pet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42000110"
+	},
+	"item": [
+		{
+			"name": "REGISTRAR MASCOTAS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"brandon\",\r\n  \"description\": \"Adopcion\",\r\n  \"age\": \"3\",\r\n  \"type\": \"perro\",\r\n  \"email\": \"eorellana@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/adoptionSystem/v1/pet/addPet",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"adoptionSystem",
+						"v1",
+						"pet",
+						"addPet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

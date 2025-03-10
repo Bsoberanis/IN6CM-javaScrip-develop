@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "c548ba72-7483-44e9-a905-cb4850941979",
+		"name": "Usuario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42000110"
+	},
+	"item": [
+		{
+			"name": "REGISTRAR USUARIOS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "luis",
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": "choc",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sis",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sis@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "37996330",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123@My14",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "USER_ROLE",
+							"type": "text"
+						},
+						{
+							"key": "profilePicture",
+							"type": "file",
+							"src": "/C:/Users/MARCO/Pictures/Actividad lúdica - Números Cuánticos-.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/adoptionSystem/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"adoptionSystem",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR FOTO DE PERFIL",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profilePicture",
+							"type": "file",
+							"src": "/C:/Users/MARCO/Pictures/ANUEL 2.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/adoptionSystem/v1/user/actualizarFotoPerfil/67aa5acef1a4749701c73f61",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"adoptionSystem",
+						"v1",
+						"user",
+						"actualizarFotoPerfil",
+						"67aa5acef1a4749701c73f61"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

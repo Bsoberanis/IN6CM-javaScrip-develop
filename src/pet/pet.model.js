@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { Schema, model } from 'mongoose';
 
 const PetSchema = Schema({
+=======
+import { Schema, model } from "mongoose";
+
+const petSchema = new Schema({
+>>>>>>> 91215ea (PMA terminado)
     name: {
         type: String,
         required: true
@@ -26,11 +32,19 @@ const PetSchema = Schema({
     status: {
         type: Boolean,
         default: true
+<<<<<<< HEAD
     }
+=======
+    },
+>>>>>>> 91215ea (PMA terminado)
 }, {
     timestamps: true,
     versionKey: false
 });
 
+<<<<<<< HEAD
 export default model('Pet', PetSchema);
 
+=======
+export default model('Pet', petSchema);
+>>>>>>> 91215ea (PMA terminado)

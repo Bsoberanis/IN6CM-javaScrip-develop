@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "53c9a8ca-3e20-4cf0-9a90-f1c8c5e6bc3b",
+		"name": "Citas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42000110"
+	},
+	"item": [
+		{
+			"name": "REGISTRAR CITAS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"date\": \"2024-10-15T10:00:00Z\",\r\n  \"pet\": \"67aa644b85a406799a3d3857\",\r\n  \"user\": \"67aa636285a406799a3d384e\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/adoptionSystem/v1/appointment/createAppointment",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"adoptionSystem",
+						"v1",
+						"appointment",
+						"createAppointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR CITAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3001/adoptionSystem/v1/appointment/listarCitas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"adoptionSystem",
+						"v1",
+						"appointment",
+						"listarCitas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CANCELAR CITA",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"CANCELLED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/adoptionSystem/v1/appointment/cancelarCita/67aa64d185a406799a3d385b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"adoptionSystem",
+						"v1",
+						"appointment",
+						"cancelarCita",
+						"67aa64d185a406799a3d385b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR CITAS",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"date\": \"2026-10-15T10:00:00Z\",\r\n  \"pet\": \"67aa644b85a406799a3d3857\",\r\n  \"user\": \"67aa636285a406799a3d384e\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/adoptionSystem/v1/appointment/actualizarCitas/67aa650185a406799a3d385f",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"adoptionSystem",
+						"v1",
+						"appointment",
+						"actualizarCitas",
+						"67aa650185a406799a3d385f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
