@@ -1,42 +1,24 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { hash, verify } from 'argon2';
-import Usuario from '../users/user.model.js';
-import { generarJWT } from '../helpers/generate-jwt.js';
-=======
-import { hash, verify } from "argon2"
-import User from "../user/user.model.js"
+import { hash, verify } from "argon2";
+import User from "../user/user.model.js";
 import { generateJWT } from "../helpers/generate-jwt.js";
->>>>>>> 91215ea (PMA terminado)
-=======
-import { hash, verify } from "argon2"
-import User from "../user/user.model.js"
-import { generateJWT } from "../helpers/generate-jwt.js";
->>>>>>> b7dfb84 (PMA terminado)
 
 export const register = async (req, res) => {
     try {
         const data = req.body;
-        let profilePicture = req.file ? req.file.filename : null;
-<<<<<<< HEAD
-<<<<<<< HEAD
+        const profilePicture = req.file ? req.file.filename : null;
         const encryptedPassword = await hash(data.password);
 
-        const user = await Usuario.create({
-            name: data.name,
-            surname: data.surname,
-            username: data.username,
-            email: data.email,
-            phone: data.phone,
+        const user = await User.create({
+            ...data,
             password: encryptedPassword,
-            role: data.role,
             profilePicture
         });
 
         return res.status(201).json({
             message: "User registered successfully",
             userDetails: {
-                user: user.email
+                name: user.name,
+                email: user.email
             }
         });
     } catch (error) {
@@ -49,50 +31,45 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-    const { email, password, username } = req.body;
-
+    const { email, username, password } = req.body;
     try {
         const lowerEmail = email ? email.toLowerCase() : '';
         const lowerUsername = username ? username.toLowerCase() : '';
 
-        const user = await Usuario.findOne({
+        const user = await User.findOne({
             $or: [{ email: lowerEmail }, { username: lowerUsername }]
         });
 
         if (!user) {
             return res.status(400).json({
-                msg: 'Credenciales incorrectas, el correo no está registrado'
-            });
-        }
-
-        if (!user.estado) {
-            return res.status(400).json({
-                msg: 'El usuario no existe en la base de datos'
+                message: "Invalid credentials",
+                error: "User or email not found"
             });
         }
 
         const validPassword = await verify(user.password, password);
         if (!validPassword) {
             return res.status(400).json({
-                msg: 'La contraseña es incorrecta'
+                message: "Invalid credentials",
+                error: "Incorrect password"
             });
         }
 
-        const token = await generarJWT(user.id);
+        const token = await generateJWT(user.id);
 
         return res.status(200).json({
-            msg: 'Inicio de sesión exitoso!!',
+            message: "Login successful",
             userDetails: {
                 username: user.username,
                 token: token,
                 profilePicture: user.profilePicture
             }
         });
-    } catch (e) {
-        console.log(e);
+    } catch (error) {
+        console.log(error);
         return res.status(500).json({
-            message: "Server error",
-            error: e.message
+            message: "Login failed, server error",
+            error: error.message
         });
     }
 };
@@ -105,118 +82,52 @@ export const updatePassword = async (req, res) => {
         const lowerEmail = email ? email.toLowerCase() : null;
         const lowerUsername = username ? username.toLowerCase() : null;
 
-        const user = await Usuario.findOne({
+        const user = await User.findOne({
             $or: [{ email: lowerEmail }, { username: lowerUsername }]
         });
 
         if (!user) {
             return res.status(404).json({
-                msg: 'No se encontró al usuario'
+                message: "User not found"
             });
         }
 
         const validPassword = await verify(user.password, oldPassword);
         if (!validPassword) {
             return res.status(400).json({
-                msg: 'La contraseña es incorrecta'
+                message: "Incorrect password"
             });
         }
 
         if (!password) {
             return res.status(400).json({
-                msg: 'La nueva contraseña es requerida.'
+                message: "New password is required"
             });
         }
 
         const hashPassword = await hash(password);
-        const updatedUser = await Usuario.findByIdAndUpdate(id, {
+        const updatedUser = await User.findByIdAndUpdate(id, {
             ...data,
             password: hashPassword
         }, { new: true });
 
         if (!updatedUser) {
             return res.status(404).json({
-                msg: 'No se encontró al usuario'
+                message: "User not found"
             });
         }
 
         return res.status(200).json({
             success: true,
-            msg: 'Contraseña actualizada correctamente',
+            message: "Password updated successfully",
             updatedUser
         });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
             success: false,
-            msg: 'Error al actualizar la contraseña',
+            message: "Error updating password",
             error: error.message
         });
     }
 };
-=======
-=======
->>>>>>> b7dfb84 (PMA terminado)
-        const encryptedPassword = await hash(data.password)
-        data.password = encryptedPassword
-        data.profilePicture = profilePicture
-
-        const user = await User.create(data);
-
-        return res.status(201).json({
-            message: "User has been created",
-            name: user.name,
-            email: user.email
-        });
-    } catch (err) {
-        return res.status(500).json({
-            message: "User registration failed",
-            error: err.message
-        });
-    }
-}
-
-export const login = async (req, res) => {
-    const { email, username, password } = req.body
-    try{
-        const user = await User.findOne({
-            $or:[{email: email}, {username: username}]
-        })
-
-        if(!user){
-            return res.status(400).json({
-                message: "Crendenciales inválidas",
-                error:"No existe el usuario o correo ingresado"
-            })
-        }
-
-        const validPassword = await verify(user.password, password)
-
-        if(!validPassword){
-            return res.status(400).json({
-                message: "Crendenciales inválidas",
-                error: "Contraseña incorrecta"
-            })
-        }
-
-        const token = await generateJWT(user.id)
-
-        return res.status(200).json({
-            message: "Login successful",
-            userDetails: {
-                token: token,
-                profilePicture: user.profilePicture
-            }
-        })
-    }catch(err){
-        return res.status(500).json({
-            message: "login failed, server error",
-            error: err.message
-        })
-    }
-<<<<<<< HEAD
-}
->>>>>>> 91215ea (PMA terminado)
-=======
-}
->>>>>>> b7dfb84 (PMA terminado)
