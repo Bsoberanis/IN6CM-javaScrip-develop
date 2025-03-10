@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { Router } from "express";
 import { login, register, updatePassword } from "./auth.controller.js";
 import { registerValidator, loginValidator, upPassValidator } from "../middlewares/validator.js";
@@ -32,31 +30,4 @@ router.put(
 );
 
 export default router;
-=======
-=======
->>>>>>> b7dfb84 (PMA terminado)
-import { Router } from "express"
-import { register, login} from "./auth.controller.js"
-import { registerValidator, loginValidator} from "../middlewares/user-validators.js"
-import { uploadProfilePicture } from "../middlewares/multer-uploads.js"
 
-const router = Router()
-
-router.post(
-    "/register",
-    uploadProfilePicture.single("profilePicture"), 
-    registerValidator, 
-    register
-)
-
-router.post(
-    "/login",
-    loginValidator,
-    login
-)
-
-export default router
-<<<<<<< HEAD
->>>>>>> 91215ea (PMA terminado)
-=======
->>>>>>> b7dfb84 (PMA terminado)
